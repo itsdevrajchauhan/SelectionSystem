@@ -1,39 +1,79 @@
-# AI-Assisted Box Selection System
-
-
-
+Yes. Here is a **much simpler, human-style version**. You can use this as your `README.md`.
 
 # AI-Assisted Box Selection System
 
 ## Project Overview
 
-## Features
+This is a Django project that finds the best box for a product.
 
-## Technology Stack
+The system checks the product's:
 
-## Project Structure
+- Length
+- Width
+- Height
+- Weight
+
+It compares these details with the available boxes.
+
+Yes — keep them very short and easy to follow.
 
 ## Setup Instructions
 
-## Environment Variables
-(if applicable)
+1. Clone the project:
 
-## Database Setup
+bash
+git clone <your-github-repository-url>
+cd django-box-selection-system
 
-## Running the Application
+2. Create and activate a virtual environment:
 
-## Running Tests
+bash
+python -m venv venv
+venv\Scripts\activate
 
-## Test Coverage
-(if you have coverage)
+3. Install the required packages:
 
-## AI Usage
-See AI_USAGE.md
+bash
+pip install -r requirements.txt
 
-## Test Results
-See TEST_OUTPUT.md
+4. Set up the database:
 
-## Chat Transcript
-See CHAT_TRANSCRIPT.txt
+bash
+python manage.py migrate
 
-## What I Learned
+5. Start the server:
+
+bash
+python manage.py runserver
+
+Open `http://127.0.0.1:8000/` in your browser.
+
+## API
+
+### Recommend a Box
+
+**URL:**
+
+text
+POST /api/recommend-box/
+
+**Request:**
+
+json
+{
+"product_id": 1,
+"quantity": 1
+}
+
+The API checks the product and finds a suitable box.
+
+Example response:
+
+json
+{
+"box_id": 1,
+"box_name": "Medium Box",
+"cost": 80.0
+}
+
+If no suitable box is found, the API returns an error.
